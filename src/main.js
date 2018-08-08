@@ -20,6 +20,7 @@ $(document).ready(function() {
               $(".tracklist").hide();
               $.get(`https://api.lyrics.ovh/v1/${artistName}/${title}`).then(function(response){
                 $("#title").text(title);
+                play();
                 let lyricArrays = response.lyrics.replace( /\n/g, "." ).split( "." );
                 lyricArrays.forEach(function(line){
                   $(".lyrics").append(line + "<br>");
@@ -38,48 +39,47 @@ $(document).ready(function() {
     });
   });
 
+  let play = function(){
+    var tag = document.createElement('script');
+    console.log(tag);
 
-  // $.get(`http://theaudiodb.com/api/v1/json/1/searchalbum.php?s=${artistName}`).then(function(response) {
-  //   let albumId = response.album[0].idAlbum;
-  //
-  //   $.get(`http://theaudiodb.com/api/v1/json/1/track.php?m=${albumId}`).then(function(response) {
-  //     trackName = response.track[0].strTrack;
-      // $.get(`https://api.lyrics.ovh/v1/${artistName}/${trackName}`).then(function(response){
-      //   console.log(response.lyrics);
-      //   let lyricArrays = response.lyrics.replace( /\n/g, "." ).split( "." );
-      //   lyricArrays.forEach(function(line){
-      //     $(".lyrics").append(line + "<br>");
-      //   });
-      // }).fail(function(error) {
-      //   $('.showErrors').text(`There was an error processing your request: ${error.responseText}. Please try again.`);
-      // });
-  //   }).fail(function(error) {
-  //     $('.showErrors').text(`There was an error processing your request: ${error.responseText}. Please try again.`);
-  //   });
-  // }).fail(function(error) {
-  //   $('.showErrors').text(`There was an error processing your request: ${error.responseText}. Please try again.`);
-  // });
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-  // var request = new XMLHttpRequest();
-  // request.open('GET', `https://api.lyrics.ovh/v1/Drake/The Motto`);
-  //
-  // let showLyrics = function(lyric){
-  //   console.log(lyric);
-  //   let lyricArrays = lyric.replace( /\n/g, "." ).split( "." );
-  //   lyricArrays.forEach(function(line){
-  //     $(".lyrics").append(line + "<br>");
-  //   });
-  // }
-  //
-  // request.onreadystatechange = function () {
-  //   if (this.readyState === 4) {
-  //     console.log('Status:', this.status);
-  //     console.log('Headers:', this.getAllResponseHeaders());
-  //     let body = JSON.parse(this.responseText);
-  //     showLyrics(body.lyrics);
-  //   }
-  //
-  // };
-  //
-  // request.send();
+    // 3. This function creates an <iframe> (and YouTube player)
+    //    after the API code downloads.
+    var player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        height: '390',
+        width: '640',
+        videoId: 'M7lc1UVf-VE',
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+
+    // 4. The API will call this function when the video player is ready.
+    function onPlayerReady(event) {
+      event.target.playVideo();
+    }
+
+    // 5. The API calls this function when the player's state changes.
+    //    The function indicates that when playing a video (state=1),
+    //    the player should play for six seconds and then stop.
+    var done = false;
+    function onPlayerStateChange(event) {
+      if (event.data == YT.PlayerState.PLAYING && !done) {
+        setTimeout(stopVideo, 6000);
+        done = true;
+      }
+    }
+    function stopVideo() {
+      player.stopVideo();
+    }
+  };
+
 });
