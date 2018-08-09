@@ -1,0 +1,111 @@
+body {
+  background: url('../img/drake1.jpg') no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Rationale', sans-serif;
+  font-size: 30px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 1.5);
+  color: #FFF;
+  margin-top: 30%;
+}
+
+#headline {
+  font-size: 3em;
+}
+
+button {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-style: none;
+  outline: 0;
+}
+
+.findLyric:hover {
+  cursor: pointer;
+  color: #a1917c;
+  font-weight: bold;
+}
+
+#title {
+  text-decoration: underline;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+.showErrors {
+  margin-top: 5%;
+}
+
+#player {
+  display: none;
+}
+
+#artistName {
+  background-color: rgba(0, 0, 0, 0.35);
+  outline-color: #a1917c;
+}
+
+/*disable chrome auto-fill*/
+/*input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px black inset;
+    -webkit-text-fill-color: #FFF;
+}*/
+
+#scroll-area {
+  margin: 2% auto auto auto;
+  width: 80%;
+  height: 600px;
+  overflow: auto;
+  display: none;
+}
+
+#scroll-area::-webkit-scrollbar {
+    -webkit-box-shadow: inset 0 0 6px #a1917c;
+    border-radius: 10px;
+}
+
+#scroll-area::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px #a1917c;
+  border-radius: 10px;
+}
+
+#player {
+  margin-top: 3%;
+}
+
+.tracklist {
+  background-color: rgba(0, 0, 0, 0.35);
+  margin-top: 3%;
+}
+
+.lyrics {
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+#end {
+  font-size: 15px;
+  text-align: center;
+  color: #FFF;
+}
+
+.icons {
+margin-top: 25%;
+bottom: 1%;
+left: 25%;
+position: relative;
+width: 50%;
+vertical-align: bottom;
+text-align: center;
+font-size: 35px;
+color: #FFF;
+padding: 1%;
+}
+
+.icons a {
+color: #FFF;
+margin: 0% 1% 1% 1%;
+}
+
+a:hover {
+color: #a1917c;;
+}
