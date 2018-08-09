@@ -1,5 +1,4 @@
 var tag = document.createElement('script');
-console.log(tag);
 
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -37,6 +36,7 @@ function onPlayerStateChange(event) {
 $(document).ready(function() {
   $("form#artistSearch-form").submit(function(event) {
     event.preventDefault();
+    $("#player").hide();
     $(".tracklist").show();
     $(".lyrics").text("");
     $("#title").text("");
@@ -56,6 +56,7 @@ $(document).ready(function() {
               $(".tracklist").hide();
               $.get(`https://api.lyrics.ovh/v1/${artistName}/${title}`).then(function(response){
                 $("#title").text(title);
+                $("#player").show();
                 play();
                 let lyricArrays = response.lyrics.replace( /\n/g, "." ).split( "." );
                 lyricArrays.forEach(function(line){
@@ -76,27 +77,6 @@ $(document).ready(function() {
   });
 
   let play = function(){
-    // var tag = document.createElement('script');
-    // console.log(tag);
-    //
-    // tag.src = "https://www.youtube.com/iframe_api";
-    // var firstScriptTag = document.getElementsByTagName('script')[0];
-    // firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    //
-    // // 3. This function creates an <iframe> (and YouTube player)
-    // //    after the API code downloads.
-    // var player;
-    // function onYouTubeIframeAPIReady() {
-    //   player = new YT.Player('player', {
-    //     height: '390',
-    //     width: '640',
-    //     videoId: 'M7lc1UVf-VE',
-    //     events: {
-    //       'onReady': onPlayerReady,
-    //       'onStateChange': onPlayerStateChange
-    //     }
-    //   });
-    // }
 
     // 4. The API will call this function when the video player is ready.
     function onPlayerReady(event) {
