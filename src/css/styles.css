@@ -29,6 +29,11 @@ button {
 #title {
   text-decoration: underline;
   font-size: 1.25em;
+  font-weight: bold;
+}
+
+.showErrors {
+  margin-top: 5%;
 }
 
 #player {
@@ -64,6 +69,9 @@ button {
   border-radius: 10px;
 }
 
+#player {
+  margin-top: 3%;
+}
 
 .tracklist {
   background-color: rgba(0, 0, 0, 0.35);
