@@ -38,6 +38,7 @@ $(document).ready(function() {
     event.preventDefault();
     $("#player").hide();
     $(".tracklist").show();
+    $("#scroll-area").hide();
     $(".lyrics").text("");
     $("#title").text("");
     let artistName = $("#artistName").val();
@@ -48,6 +49,7 @@ $(document).ready(function() {
       response.album.forEach(function(album) {
         albumId = album.idAlbum;
         $.get(`http://theaudiodb.com/api/v1/json/1/track.php?m=${albumId}`).then(function(response) {
+          $("#scroll-area").show();
           response.track.forEach(function(track) {
             let title = track.strTrack;
             trackLists.push(track.strTrack);

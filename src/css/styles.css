@@ -1,17 +1,13 @@
 body {
-  background: url('../img/drake1.jpg') no-repeat 50% 50%;
+  background: url('../img/drake1.jpg') no-repeat;
   background-size: cover;
-  height: 100%;
-  width: 100%;
-  height: 100vh;
+  background-attachment: fixed;
   font-family: 'Rationale', sans-serif;
   font-size: 30px;
   text-align: center;
   background-color: rgba(0, 0, 0, 1.5);
   color: #FFF;
-  margin-top: 45%;
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 30%;
 }
 
 #headline {
@@ -21,6 +17,7 @@ body {
 button {
   background-color: rgba(0, 0, 0, 0.1);
   border-style: none;
+  outline: 0;
 }
 
 .findLyric:hover {
@@ -40,14 +37,37 @@ button {
 
 #artistName {
   background-color: rgba(0, 0, 0, 0.35);
+  outline-color: #a1917c;
 }
 
-#artistName:focus {
-  background-color: rgba(0, 0, 0, 0.35);
+/*disable chrome auto-fill*/
+/*input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px black inset;
+    -webkit-text-fill-color: #FFF;
+}*/
+
+#scroll-area {
+  margin: 2% auto auto auto;
+  width: 80%;
+  height: 600px;
+  overflow: auto;
+  display: none;
 }
+
+#scroll-area::-webkit-scrollbar {
+    -webkit-box-shadow: inset 0 0 6px #a1917c;
+    border-radius: 10px;
+}
+
+#scroll-area::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px #a1917c;
+  border-radius: 10px;
+}
+
 
 .tracklist {
   background-color: rgba(0, 0, 0, 0.35);
+  margin-top: 3%;
 }
 
 .lyrics {
@@ -61,16 +81,21 @@ button {
 }
 
 .icons {
-margin-top: 75%;
+margin-top: 25%;
+bottom: 1%;
+left: 25%;
+position: relative;
+width: 50%;
 vertical-align: bottom;
 text-align: center;
 font-size: 35px;
 color: #FFF;
-padding: 3em;
+padding: 1%;
 }
 
 .icons a {
 color: #FFF;
+margin: 0% 1% 1% 1%;
 }
 
 a:hover {
