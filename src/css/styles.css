@@ -1,14 +1,28 @@
 body {
   background: url('../img/drake1.jpg') no-repeat 50% 50%;
+  background-size: cover;
   height: 100%;
   width: 100%;
   height: 100vh;
   font-family: 'Rationale', sans-serif;
-  font-size: 28px;
+  font-size: 30px;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 1.5);
   color: #FFF;
+  margin-top: 45%;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+#headline {
+  font-size: 3em;
+}
+
+button {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-style: none;
+}
+
 .findLyric:hover {
   cursor: pointer;
   color: blue;
@@ -17,7 +31,7 @@ body {
 
 #title {
   text-decoration: underline;
-  font-weight: bold;
+  font-size: 1.25em;
 }
 
 #player {
@@ -25,9 +39,13 @@ body {
 }
 
 #artistName {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+.tracklist {
+  background-color: rgba(0, 0, 0, 0.35);
 }
 
 .lyrics {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.35);
 }
